@@ -1,10 +1,11 @@
+'use client';
 import React, { useEffect, useState } from "react";
 import { long_logo, ClosedEye, Google, OpenEye } from "../assets/icons";
 import home_login from "../assets/images/house_login.png";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import page_break from "../assets/images/page_break.png";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { useContext } from "react";
 import UserContext from "../context/userContext";
 
@@ -188,7 +189,7 @@ const SignUp = () => {
 
         <div className="text-center mx-auto mt-3">
           Already have an account?{" "}
-          <Link className="font-bold hover:underline" to="/login">
+          <Link className="font-bold hover:underline" href="/login">
             Login
           </Link>
         </div>

@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, useEffect } from "react";
 import home from "../assets/images/home.png";
 import sofa_banner from "../assets/images/sofa_banner.png";
@@ -23,7 +24,7 @@ import {
 } from "../assets/icons";
 import { Carousel, IconButton } from "@material-tailwind/react";
 import { Stepper, Step, Button } from "@material-tailwind/react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 const LandingPage = () => {
   const [feature, setFeature] = useState(1);
@@ -59,7 +60,7 @@ const LandingPage = () => {
         </ul>
         <div className="flex">
           <Link
-            to="/login"
+            href="/login"
             className="border-2 w-fit ml-auto content-center text-center text-xl  border-primary-purple rounded-md lg:mr-10 h-11 lg:h-full px-7 text-primary-purple font-medium"
           >
             Login

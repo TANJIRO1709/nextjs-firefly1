@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, useEffect, useContext, useCallback } from "react";
 import { Canvas } from "@react-three/fiber";
 import Editor from "../components/Editor";
@@ -21,7 +22,7 @@ import {
   search,
 } from "../assets/icons";
 import SaveModal from "../components/SaveModal";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { DracoEncoderModule } from "../assets/draco/draco_encoder.js";
 import { DracoDecoderModule } from "../assets/draco/draco_decoder.js";
 
@@ -148,7 +149,7 @@ const EditorPage = () => {
     <div className="h-screen relative">
       {!user && (
         <Link
-          to="/login"
+          href="/login"
           className="z-10 absolute top-0 right-0 text-xl border-2 border-primary-purple text-primary-purple rounded-lg m-5 px-3 py-1"
         >
           Login
