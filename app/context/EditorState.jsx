@@ -1,8 +1,9 @@
+"use client";
 import React from "react";
 import EditorContext from "./editorContext";
 import { useState } from "react";
 
-function EditorState(props) {
+function EditorState({children}) {
   const [isEditing, setIsEditing] = useState(true);
   const [roomModel, setRoomModel] = useState(null);
   const [model, setModel] = useState(null);
@@ -21,7 +22,7 @@ function EditorState(props) {
         setSingleRoom,
       }}
     >
-      {props.children}
+      {children}
     </EditorContext.Provider>
   );
 }

@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import UserState from "./context/UserState";
+import ShopState from "./context/ShopState";
+import EditorState from "./context/EditorState";
 
 const avenirnext = ({
   src: "./assets/fonts/AvenirNextLTPro-Regular.otf",
@@ -21,7 +24,13 @@ export default function RootLayout({
       <body
         className={`${avenirnext.variable} antialiased`}
       >
-        {children}
+        <EditorState>
+          <UserState>
+            <ShopState>
+            {children}
+            </ShopState>
+          </UserState>
+        </EditorState>
       </body>
     </html>
   );

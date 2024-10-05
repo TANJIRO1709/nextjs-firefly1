@@ -1,12 +1,12 @@
+"use client";
 import React, { useContext } from "react";
 import ShopContext from "./shopContext";
 import { useState } from "react";
 import { extractPublicId } from "cloudinary-build-url";
 import userContext from "./userContext";
 
-function ShopState(props) {
-  const host = import.meta.env.VITE_HOST;
-  const { showAlert } = props;
+function ShopState({children}) {
+  const host = process.env.NEXT_PUBLIC_HOST;
   const [cart, setCart] = useState([]);
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -14,6 +14,19 @@ function ShopState(props) {
   const [models, setModels] = useState([]);
   const [productModels, setProductModels] = useState([]);
   const { user } = useContext(userContext);
+  const [alert, setAlert] = useState(null);
+  const showAlert = (message, type) => {
+    setAlert({
+      msg: message,
+      type: type,
+    });
+    setTimeout(() => {
+      setAlert(null);
+    }, 4000);
+  };
+  const closeAlert = () => {
+    setAlert(null);
+  };
 
   // get cart
   const getCart = async () => {
@@ -418,7 +431,7 @@ function ShopState(props) {
         getAllModels,
       }}
     >
-      {props.children}
+      {children}
     </ShopContext.Provider>
   );
 }

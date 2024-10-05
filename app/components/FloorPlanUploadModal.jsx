@@ -3,10 +3,10 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import CustomizedSteppers from "./CustomizedStepper";
 import * as Yup from "yup";
 import editorContext from "../context/editorContext";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
 
 const SingleRoomModal = ({ setShowSingleRoomModal }) => {
-  const navigate = useNavigate();
+  const router=useRouter();
   const { setSingleRoom } = useContext(editorContext);
   const validationSchema = Yup.object({
     roomName: Yup.string().required("Room Name is required"),
@@ -37,7 +37,7 @@ const SingleRoomModal = ({ setShowSingleRoomModal }) => {
               scale: [values.length, values.width, values.height],
             });
             setShowSingleRoomModal(false);
-            navigate("/editor");
+            router.push("/editor");
           }}
         >
           {() => (

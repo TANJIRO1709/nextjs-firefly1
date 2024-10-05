@@ -5,16 +5,15 @@ import shopContext from "../context/shopContext";
 import editorContext from "../context/editorContext";
 import { cld } from "../util/cloudinaryConfig";
 import { AdvancedImage } from "@cloudinary/react";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
 import FloorPlanUploadModal from "./FloorPlanUploadModal";
 
 const Dashboard = () => {
   const { models, getAllModels } = useContext(shopContext);
   const { userModels, user } = useContext(userContext);
   const { setRoomModel, setIsEditing, setModel } = useContext(editorContext);
-  const navigate = useNavigate();
   const [showFloorPlanModal, setShowFloorPlanModal] = useState(false);
-
+  const router=useRouter();
   useEffect(() => {
     getAllModels();
   }, []);
@@ -81,7 +80,7 @@ const Dashboard = () => {
                         setModel(model);
                         setIsEditing(true);
                         setRoomModel(model);
-                        navigate("/editor");
+                        router.push("/editor");
                       }}
                       className="w-full py-1 text-center text-sm font-medium border rounded-[3px] border-primary-purple text-primary-purple"
                     >

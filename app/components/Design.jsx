@@ -4,15 +4,15 @@ import { Cloudinary } from "@cloudinary/url-gen";
 import { AdvancedImage } from "@cloudinary/react";
 import shopContext from "../context/shopContext";
 import editorContext from "../context/editorContext";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
 const cld = new Cloudinary({
   cloud: {
-    cloudName: import.meta.env.VITE_CLOUDINARY_CLOUD_NAME,
+    cloudName:process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
   },
 });
 
 const Design = () => {
-  const navigate = useNavigate();
+  const router=useRouter();
   const scrollContainerRef = useRef(null);
   const [activeCategory, setActiveCategory] = useState(null);
 
@@ -166,7 +166,7 @@ const Design = () => {
                 <button
                   onClick={() => {
                     setRoomModel(model);
-                    navigate("/editor");
+                    router.push("/editor");
                   }}
                   className="py-1 px-3 m-2 text-center font-medium border rounded-[3px] border-primary-purple text-primary-purple"
                 >

@@ -9,7 +9,7 @@ import {
   mobile_heart,
   mobile_search,
 } from "../assets/icons";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 const Navbar = ({ active, user, logout, toggleSidebar, setShowCart }) => {
   const capitalize = (str) => {
@@ -32,7 +32,7 @@ const Navbar = ({ active, user, logout, toggleSidebar, setShowCart }) => {
           </div>
         ) : (
           <Link
-            to="/login"
+            href="/login"
             className="border-2 border-primary-purple text-primary-purple px-3 py-2 rounded-sm text-lg font-medium"
           >
             Login
@@ -60,7 +60,7 @@ const Navbar = ({ active, user, logout, toggleSidebar, setShowCart }) => {
           style={user !== null ? { display: "none" } : { display: "block" }}
         >
           <Link
-            to="/login"
+            href="/login"
             className="border-2 border-primary-purple text-primary-purple px-3 py-2 rounded-sm text-lg font-medium"
           >
             Login

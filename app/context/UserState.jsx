@@ -1,21 +1,33 @@
+"use client";
 import React from "react";
 import UserContext from "./userContext";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from 'next/navigation'
 import {
   auth,
   GoogleAuthProvider,
   signInWithPopup,
 } from "../util/firebase-config";
 
-function UserState(props) {
-  const navigate = useNavigate();
-  const host = import.meta.env.VITE_HOST;
-  const { showAlert } = props;
-  const [user, setUser] = useState(null);
+function UserState({children}) {
+  const router = useRouter();
+  const host = process.env.NEXT_PUBLIC_HOST;
+  const [user, setUser] = useState([]);
   const [likedProducts, setLikedProducts] = useState([]);
   const [userModels, setUserModels] = useState([]);
-
+  const [alert, setAlert] = useState(null);
+  const showAlert = (message, type) => {
+    setAlert({
+      msg: message,
+      type: type,
+    });
+    setTimeout(() => {
+      setAlert(null);
+    }, 4000);
+  };
+  const closeAlert = () => {
+    setAlert(null);
+  };
   const getUserData = async () => {
     if (user) {
       return user;
@@ -54,7 +66,7 @@ function UserState(props) {
     if (data.success) {
       getUserData();
       props.showAlert("LoggedIn successfully", "success");
-      navigate("/");
+      router.push("/");
     } else {
       showAlert("Failed to LogIn", "danger");
     }
@@ -74,7 +86,7 @@ function UserState(props) {
     if (data.success) {
       getUserData();
       props.showAlert("LoggedIn successfully", "success");
-      navigate("/");
+      router.push("/");
     } else {
       showAlert("Failed to SignUp", "danger");
     }
@@ -106,7 +118,7 @@ function UserState(props) {
         if (response.ok) {
           getUserData();
           showAlert("LoggedIn successfully", "success");
-          navigate("/");
+          router.push("/");
         } else {
           showAlert("Failed to SignUp", "danger");
         }
@@ -172,7 +184,7 @@ function UserState(props) {
         userModels,
       }}
     >
-      {props.children}
+      {children}
     </UserContext.Provider>
   );
 }
