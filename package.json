@@ -26,6 +26,7 @@
     "draco3dgltf": "^1.5.7",
     "firebase": "^10.12.2",
     "formik": "^2.4.6",
+    "fs": "^0.0.1-security",
     "next": "14.2.14",
     "postprocessing": "^6.36.0",
     "r3f-perf": "^7.2.1",

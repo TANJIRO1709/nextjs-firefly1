@@ -1,3 +1,4 @@
+"use server";
 export var DracoDecoderModule = (() => {
   var _scriptDir =
     typeof document !== "undefined" && document.currentScript

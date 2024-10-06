@@ -23,15 +23,15 @@ import {
 } from "../assets/icons";
 import SaveModal from "../components/SaveModal";
 import Link from "next/link";
-import { DracoEncoderModule } from "../assets/draco/draco_encoder.js";
-import { DracoDecoderModule } from "../assets/draco/draco_decoder.js";
+// import { DracoEncoderModule } from "../assets/draco/draco_encoder.js";
+// import { DracoDecoderModule } from "../assets/draco/draco_decoder.js";
 
-const io = new WebIO({ credentials: "include" })
-  .registerExtensions(KHRONOS_EXTENSIONS)
-  .registerDependencies({
-    "draco3d.encoder": new DracoEncoderModule(),
-    "draco3d.decoder": new DracoDecoderModule(),
-  });
+// const io = new WebIO({ credentials: "include" })
+//   .registerExtensions(KHRONOS_EXTENSIONS)
+//   .registerDependencies({
+//     "draco3d.encoder": new DracoEncoderModule(),
+//     "draco3d.decoder": new DracoDecoderModule(),
+//   });
 
 const EditorPage = () => {
   const {
@@ -142,7 +142,7 @@ const EditorPage = () => {
         options
       );
     },
-    [exporter, io, options]
+    [exporter, options]
   );
 
   return (

@@ -83,7 +83,7 @@ const LandingPage = () => {
           technology
         </div>
         <button className="mt-16 flex w-full lg:w-fit py-4 px-4 lg:py-2 bg-primary-purple rounded-md justify-center items-center">
-          <Link to="/" className="flex text-center text-white text-3xl lg:text-xl font-normal ">
+          <Link href="/" className="flex text-center text-white text-3xl lg:text-xl font-normal ">
             Start for free
           </Link>
         </button>

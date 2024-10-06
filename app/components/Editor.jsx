@@ -369,7 +369,7 @@ import React, {
         <GizmoHelper
           alignment="bottom-right"
           margin={[80, 80]}
-          onTarget={() => controls.current.target}
+          //onTarget={() => controls.current.target}
         >
           <GizmoViewport scale={40} position={[0, -20, -20]} />
         </GizmoHelper>
