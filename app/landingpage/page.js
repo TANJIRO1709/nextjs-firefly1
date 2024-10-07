@@ -30,13 +30,13 @@ const LandingPage = () => {
   const [feature, setFeature] = useState(1);
   const [isLastStep, setIsLastStep] = useState(false);
   const [isFirstStep, setIsFirstStep] = useState(false);
-  const [showBackground, setShowBackground] = useState(window.innerWidth > 768);
+  const [showBackground, setShowBackground] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
       setShowBackground(window.innerWidth > 959);
     };
-
+    handleResize();
     window.addEventListener("resize", handleResize);
 
     // Cleanup function to remove the event listener

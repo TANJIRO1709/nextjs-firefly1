@@ -12,15 +12,14 @@ import UserContext from "../context/userContext";
 const Login = () => {
   const userContext = useContext(UserContext);
   const { user, login, signup, logout, googleSignin } = userContext;
-  const [showBackground, setShowBackground] = useState(
-    window.innerWidth > 1140
-  );
+  const [showBackground, setShowBackground] = useState(false);
   const [view, setView] = useState("password");
 
   useEffect(() => {
     const handleResize = () => {
       setShowBackground(window.innerWidth > 1140);
     };
+    handleResize();
     document.body.style.backgroundColor = "#cfdfe0";
     window.addEventListener("resize", handleResize);
 
