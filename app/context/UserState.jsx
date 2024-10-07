@@ -93,14 +93,14 @@ function UserState({children}) {
   };
 
   const googleSignin = async () => {
-    console.log("Google Login");
+    //console.log("Google Login");
     const provider = new GoogleAuthProvider();
-    console.log("provider = ", provider);
+    //console.log("provider = ", provider);
     signInWithPopup(auth, provider).then((result) => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const user = result.user;
-      console.log("User = ", user);
-      console.log("HOST = ", host);
+      // console.log("User = ", user);
+      // console.log("HOST = ", host);
 
       fetch(`${host}/googlesignin`, {
         method: "POST",
@@ -114,7 +114,7 @@ function UserState({children}) {
           password: user.uid,
         }),
       }).then((response) => {
-        console.log("response => ", response);
+        //console.log("response => ", response);
         if (response.ok) {
           getUserData();
           showAlert("LoggedIn successfully", "success");

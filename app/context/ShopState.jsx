@@ -45,7 +45,7 @@ function ShopState({children}) {
       }
     } catch (error) {
       showAlert("Failed to fetch cart", "danger");
-      console.log("Error Occured in getCart ShopState", error);
+      //console.log("Error Occured in getCart ShopState", error);
     }
   };
 
@@ -335,9 +335,9 @@ function ShopState({children}) {
 
   // savemodel
   const saveModel = async (model, modelName, imageUrl) => {
-    console.log("model = ", model);
-    console.log("modelName = ", modelName);
-    console.log("imageUrl = ", imageUrl);
+    // console.log("model = ", model);
+    // console.log("modelName = ", modelName);
+    // console.log("imageUrl = ", imageUrl);
     const modelBlob = new Blob([model], { type: "application/octet-stream" });
 
     const formData = new FormData();
@@ -362,10 +362,10 @@ function ShopState({children}) {
   // overwrite
   const overwriteModel = async (modelData, modelName, imageUrl, model) => {
     const modelId = model._id;
-    console.log("modelData = ", modelData);
-    console.log("modelName = ", modelName);
-    console.log("imageUrl = ", imageUrl);
-    console.log("modelId = ", modelId);
+    // console.log("modelData = ", modelData);
+    // console.log("modelName = ", modelName);
+    // console.log("imageUrl = ", imageUrl);
+    // console.log("modelId = ", modelId);
 
     if (!user) {
       showAlert("You are not logged in", "danger");

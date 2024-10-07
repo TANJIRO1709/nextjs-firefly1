@@ -111,7 +111,7 @@ const SingleRoomModal = ({ setShowSingleRoomModal }) => {
 const FloorPlanUploadModal = ({ user, setShowFloorPlanModal }) => {
   const [activeStep, setActiveStep] = useState(0);
   const [showSingleRoomModal, setShowSingleRoomModal] = useState();
-  console.log("USER in floorplan = ", user);
+  //console.log("USER in floorplan = ", user);
 
   const initialValues = {
     userEmail: user.email,
@@ -119,9 +119,9 @@ const FloorPlanUploadModal = ({ user, setShowFloorPlanModal }) => {
     modelPlan: "",
   };
 
-  const onSubmit = (values) => {
-    console.log(values);
-  };
+  // const onSubmit = (values) => {
+  //   console.log(values);
+  // };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">

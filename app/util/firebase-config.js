@@ -1,6 +1,6 @@
 import { initializeApp, getApps, getApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
-
+import { getAnalytics } from "firebase/analytics";
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -20,5 +20,5 @@ if (!getApps().length) {
 }
 
 const auth = getAuth(app);
-
-export { app, auth, GoogleAuthProvider, signInWithPopup, signOut };
+const analytics = getAnalytics(app);
+export { app, auth, GoogleAuthProvider, signInWithPopup, signOut,analytics };

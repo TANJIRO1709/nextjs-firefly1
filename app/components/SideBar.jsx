@@ -102,7 +102,7 @@ const SideBar = ({ active, setActive, viewSideBar, toggleSidebar }) => {
         <button
           hidden={!viewSidebarButton}
           onClick={(e) => {
-            console.log(viewSideBar);
+            //console.log(viewSideBar);
             toggleSidebar(e);
           }}
           className="absolute top-0 -right-9 text-3xl border-2 px-2 text-primary-black bg-light-gray"
@@ -120,7 +120,7 @@ const SideBar = ({ active, setActive, viewSideBar, toggleSidebar }) => {
             hidden={!viewSideBar}
             className="absolute top-0 right-4 text-2xl"
             onClick={(e) => {
-              console.log(viewSideBar);
+              //console.log(viewSideBar);
               toggleSidebar(e);
             }}
           >

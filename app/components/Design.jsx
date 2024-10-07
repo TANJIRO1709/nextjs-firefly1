@@ -34,7 +34,7 @@ const Design = () => {
   } = useContext(shopContext);
 
   const { roomModel, setRoomModel } = useContext(editorContext);
-  console.log("roomModel = ", roomModel);
+  //console.log("roomModel = ", roomModel);
 
   useEffect(() => {
     const handleScroll = (e) => {
@@ -75,13 +75,13 @@ const Design = () => {
 
   useEffect(() => {
     if (activeCategory) {
-      console.log(activeCategory);
+      //console.log(activeCategory);
       getModels(activeCategory._id);
     }
   }, [activeCategory]);
 
   useEffect(() => {
-    console.log("MODELS UPDATED = ", models);
+    //console.log("MODELS UPDATED = ", models);
   }, [models]);
 
   const handleDesignClick = (category) => {
