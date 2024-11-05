@@ -44,7 +44,7 @@ const Home = () => {
   };
 
   return (
-    <div className="flex">
+    <div className="flex bg-white text-black">
       {user && (
         <SideBar
           active={active}
