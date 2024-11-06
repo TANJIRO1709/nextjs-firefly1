@@ -73,7 +73,7 @@ export default function Component({ active, user, logout, toggleSidebar, setShow
               <button
                 onClick={() => setViewUser(!viewUser)}
                 className="relative"
-              >
+              >{"Minor improvements"}
                 <CircleUserRound className="h-6 w-6 text-gray-700 hover:text-slate-400 hover:scale-110" />
                 {viewUser && (
                   <div
