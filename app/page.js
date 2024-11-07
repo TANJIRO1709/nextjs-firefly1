@@ -44,7 +44,7 @@ const Home = () => {
   };
 
   return (
-    <div className="flex">
+    <div className="flex bg-white text-black ">
       {user && (
         <SideBar
           active={active}
@@ -52,7 +52,7 @@ const Home = () => {
           viewSideBar={viewSideBar}
           toggleSidebar={toggleSidebar}
         />
-      )}
+      )}{"Test"}
 
       <div className="xl:py-6 xl:px-10 w-full">
         <Navbar
