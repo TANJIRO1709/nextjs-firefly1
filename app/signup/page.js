@@ -96,7 +96,7 @@ const SignUp = () => {
           {({ errors, touched }) => (
             <Form className="mt-8 ">
               <Field
-                className="w-full h-11 text-md rounded-md bg-[#e9feff] border-2 border-gray-500 pl-3 font-jakarta focus:border-primary-purple"
+                className="w-full h-11 text-black text-md rounded-md bg-[#e9feff] border-2 border-gray-500 pl-3 font-jakarta focus:border-primary-purple"
                 type="text"
                 name="name"
                 id="name"
@@ -142,7 +142,7 @@ const SignUp = () => {
               </span>
 
               <Field
-                className="w-full h-11 text-md rounded-md bg-[#e9feff] border-2 border-gray-500 pl-3 font-jakarta focus:border-primary-purple mt-3"
+                className="w-full text-black h-11 text-md rounded-md bg-[#e9feff] border-2 border-gray-500 pl-3 font-jakarta focus:border-primary-purple mt-3"
                 type="text"
                 name="phone"
                 id="phone"
@@ -173,7 +173,7 @@ const SignUp = () => {
             </Form>
           )}
         </Formik>
-        <img className="mx-auto h-6 my-10" src={page_break} alt="or" />
+        <div className="h-24"></div>
 
         <button
           onClick={() => googleSignin()}
@@ -187,8 +187,8 @@ const SignUp = () => {
           </div>
         </button>
 
-        <div className="text-center mx-auto mt-3">
-          Already have an account?{" "}
+        <div className="text-center mx-auto mt-3 text-black">
+          Alraedy have an account?{" "}
           <Link className="font-bold hover:underline" href="/login">
             Login
           </Link>
