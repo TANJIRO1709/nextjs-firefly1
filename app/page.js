@@ -52,7 +52,7 @@ const Home = () => {
           viewSideBar={viewSideBar}
           toggleSidebar={toggleSidebar}
         />
-      )}{"Test"}
+      )}{""}
 
       <div className="xl:py-6 xl:px-10 w-full">
         <Navbar
