@@ -107,7 +107,7 @@ const SignUp = () => {
               </span>
 
               <Field
-                className="w-full h-11 text-md rounded-md bg-[#e9feff] border-2 border-gray-500 pl-3 font-jakarta focus:border-primary-purple mt-3"
+                className="w-full h-11 text-md rounded-md text-black bg-[#e9feff] border-2 border-gray-500 pl-3 font-jakarta focus:border-primary-purple mt-3"
                 type="text"
                 name="email"
                 id="signup_emil"
@@ -118,7 +118,7 @@ const SignUp = () => {
               </span>
               <div className="relative">
                 <Field
-                  className="w-full h-11 text-md rounded-md bg-[#e9feff] border-2 border-gray-500 pl-3 font-jakarta focus:border-primary-purple mt-3"
+                  className="w-full h-11 text-md rounded-md text-black bg-[#e9feff] border-2 border-gray-500 pl-3 font-jakarta focus:border-primary-purple mt-3"
                   type={view}
                   name="password"
                   id="signup_password"
