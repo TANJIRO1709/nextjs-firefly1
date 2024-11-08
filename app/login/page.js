@@ -37,9 +37,10 @@ const Login = () => {
       .required("Required"),
   });
 
-  return (
+  return (<>
+  <div>
     <div
-      className={`bg-[#cfdfe0] h-[100vh] content-center`}
+      className={`bg-[#cfdfe0] h-[100vh] content-center `}
       style={{
         backgroundImage: showBackground ? `url(${working_girl})` : "none",
         backgroundSize: "120vh 90vh",
@@ -106,7 +107,7 @@ const Login = () => {
             </Form>
           )}
         </Formik>
-        <img className="mx-auto h-6 my-10" src={page_break} alt="or" />
+        <div className="h-24"></div>
 
         <button
           onClick={() => googleSignin()}
@@ -120,7 +121,7 @@ const Login = () => {
           </div>
         </button>
 
-        <div className="text-center mx-auto mt-3">
+        <div className="text-center mx-auto mt-3 text-black">
           Don't have an account?{" "}
           <Link className="font-bold hover:underline" href="/signup">
             Signup
@@ -128,6 +129,8 @@ const Login = () => {
         </div>
       </div>
     </div>
+    </div>
+    </>
   );
 };
 
