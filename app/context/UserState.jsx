@@ -65,7 +65,7 @@ function UserState({children}) {
     console.log("data post login=> ", data);
     if (data.success) {
       getUserData();
-      props.showAlert("LoggedIn successfully", "success");
+      //props.showAlert("LoggedIn successfully", "success");
       router.push("/");
     } else {
       showAlert("Failed to LogIn", "danger");
@@ -85,7 +85,7 @@ function UserState({children}) {
     const data = await response.json();
     if (data.success) {
       getUserData();
-      props.showAlert("LoggedIn successfully", "success");
+      //props.showAlert("LoggedIn successfully", "success");
       router.push("/");
     } else {
       showAlert("Failed to SignUp", "danger");
