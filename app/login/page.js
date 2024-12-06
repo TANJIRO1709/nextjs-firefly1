@@ -37,9 +37,10 @@ const Login = () => {
       .required("Required"),
   });
 
-  return (
+  return (<>
+  <div>
     <div
-      className={`bg-[#cfdfe0] h-[100vh] content-center`}
+      className={`bg-[#cfdfe0] h-[100vh] content-center `}
       style={{
         backgroundImage: showBackground ? `url(${working_girl})` : "none",
         backgroundSize: "120vh 90vh",
@@ -67,7 +68,7 @@ const Login = () => {
           {({ errors, touched }) => (
             <Form className="mt-8">
               <Field
-                className="w-full h-11 text-md rounded-md bg-[#e9feff] border-2 border-gray-500 pl-3 font-jakarta focus:border-primary-purple mt-3"
+                className="w-full h-11 text-md rounded-md text-black bg-[#e9feff] border-2 border-gray-500 pl-3 font-jakarta focus:border-primary-purple mt-3"
                 type="text"
                 name="email"
                 id="login_email"
@@ -78,7 +79,7 @@ const Login = () => {
               </span>
               <div className="relative">
                 <Field
-                  className="w-full h-11 text-md rounded-md bg-[#e9feff] border-2 border-gray-500 pl-3 font-jakarta focus:border-primary-purple mt-3"
+                  className="w-full h-11 text-md text-black rounded-md bg-[#e9feff] border-2 border-gray-500 pl-3 font-jakarta focus:border-primary-purple mt-3"
                   type={view}
                   name="password"
                   id="login_password"
@@ -106,7 +107,7 @@ const Login = () => {
             </Form>
           )}
         </Formik>
-        <img className="mx-auto h-6 my-10" src={page_break} alt="or" />
+        <div className="h-24"></div>
 
         <button
           onClick={() => googleSignin()}
@@ -120,7 +121,7 @@ const Login = () => {
           </div>
         </button>
 
-        <div className="text-center mx-auto mt-3">
+        <div className="text-center mx-auto mt-3 text-black">
           Don't have an account?{" "}
           <Link className="font-bold hover:underline" href="/signup">
             Signup
@@ -128,6 +129,8 @@ const Login = () => {
         </div>
       </div>
     </div>
+    </div>
+    </>
   );
 };
 

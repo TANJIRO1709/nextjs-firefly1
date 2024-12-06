@@ -1,103 +1,102 @@
-import React, { useState } from "react";
-import {
-  logo,
-  cart,
-  user_logo,
-  search,
-  mobile_cart,
-  mobile_ham,
-  mobile_heart,
-  mobile_search,
-} from "../assets/icons";
-import Link from "next/link";
+"use client"
+import React, { useState } from "react"
+import { Bell, Search, ShoppingCart, CircleUserRound } from "lucide-react"
+import Link from "next/link"
 
-const Navbar = ({ active, user, logout, toggleSidebar, setShowCart }) => {
-  const capitalize = (str) => {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-  };
-
-  const [searchText, setSearchText] = useState("");
-  const [viewUser, setViewUser] = useState(false);
+export default function Component({ active, user, logout, toggleSidebar, setShowCart }) {
+  const [searchText, setSearchText] = useState("")
+  const [viewUser, setViewUser] = useState(false)
 
   return (
-    <>
-      <div className="mobile-nav flex xl:hidden bg-[#eef1f2] py-3 px-5 justify-between">
-        <div>{logo}</div>
+    <nav className="w-full border-b">
+      {/* Mobile Navigation */}
+      <div className="flex items-center justify-between p-4 xl:hidden">
+        <div className="text-xl font-bold">Logo</div>
         {user ? (
-          <div className="content-center space-x-7">
-            <button>{mobile_search}</button>
-            <button onClick={() => setShowCart(true)}>{mobile_cart}</button>
-            <button>{mobile_heart}</button>
-            <button onClick={(e) => toggleSidebar(e)}>{mobile_ham}</button>
+          <div className="flex items-center gap-4">
+            <button>
+              <Search className="h-5 w-5" />
+            </button>
+            <button onClick={() => setShowCart(true)}>
+              <ShoppingCart className="h-5 w-5" />
+            </button>
+            <button>
+              <Bell className="h-5 w-5" />
+            </button>
+            <button onClick={toggleSidebar}>
+              <CircleUserRound className="h-8 w-8 text-gray-400" />
+            </button>
           </div>
         ) : (
           <Link
             href="/login"
-            className="border-2 border-primary-purple text-primary-purple px-3 py-2 rounded-sm text-lg font-medium"
+            className="rounded-md border border-gray-200 px-4 py-2 text-sm font-medium hover:bg-gray-50"
           >
             Login
           </Link>
         )}
       </div>
-      <div className="desktop-nav hidden xl:grid grid-cols-12">
-        <h1 className="text-primary-black text-2.5xl font-bold col-span-3 flex items-center">
-          {capitalize(active)}
-        </h1>
-        <div className="flex h-10 col-span-5 rounded-md border-2 border-[#D9D9D9] items-center">
-          <input
-            type="text"
-            placeholder="Search"
-            className="px-4 w-full outline-none border-none"
-            value={searchText}
-            onChange={(e) => setSearchText(e.target.value)}
-          />
-          <button className="bg-[#D9D9D9] px-4 rounded-r-md h-10">
-            {search}
-          </button>
-        </div>
-        <div
-          className="col-span-4 ml-auto"
-          style={user !== null ? { display: "none" } : { display: "block" }}
-        >
-          <Link
-            href="/login"
-            className="border-2 border-primary-purple text-primary-purple px-3 py-2 rounded-sm text-lg font-medium"
-          >
-            Login
+
+      {/* Desktop Navigation */}
+      <div className="hidden h-16 items-center justify-between px-6 xl:flex">
+        <div className="flex items-center space-x-6">
+          <Link href="/community" className="text-sm font-medium text-gray-700 hover:text-gray-900 ">
+            Community
+          </Link>
+          <Link href="/tutorials" className="text-sm font-medium text-gray-700 hover:text-gray-900">
+            Tutorials
           </Link>
         </div>
 
-        <div
-          className="col-span-4 ml-auto"
-          style={user === null ? { display: "none" } : { display: "block" }}
-        >
-          <button
-            onClick={() => {
-              setShowCart(true);
-            }}
-            className="mr-16"
-          >
-            {cart}
-          </button>
-          <button
-            onClick={() => {
-              setViewUser(!viewUser);
-            }}
-            className="relative"
-          >
-            {user_logo}
-            <div
-              onClick={() => logout()}
-              hidden={!viewUser}
-              className="absolute top-10 right-0 hover:bg-light-gray shadow w-44 rounded-md px-2 py-1 my-2"
+        <div className="flex w-full max-w-md items-center px-8">
+          <div className="relative w-full">
+            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400 cursor-pointer" />
+            <input
+              type="text"
+              placeholder="What are you looking for?"
+              className="w-full rounded-md border border-gray-200 py-2 pl-10 pr-4 text-sm outline-none focus:border-gray-300"
+              value={searchText}
+              onChange={(e) => setSearchText(e.target.value)}
+            />
+          </div>
+        </div>
+
+        <div className="flex items-center space-x-4">
+          {user ? (
+            <>
+              <button onClick={() => setShowCart(true)}>
+                <ShoppingCart className="h-5 w-5 text-gray-700 hover:text-slate-400 hover:scale-110" />
+              </button>
+              <button>
+                <Bell className="h-5 w-5 text-gray-700 hover:text-slate-400 hover:scale-110" />
+              </button>
+              <button
+                onClick={() => setViewUser(!viewUser)}
+                className="relative"
+              >{""}
+                <CircleUserRound className="h-6 w-6 text-gray-700 hover:text-slate-400 hover:scale-110" />
+                {viewUser && (
+                  <div
+                    onClick={() => logout()}
+                    className="absolute right-0 top-full mt-2 w-48 rounded-md border border-gray-200 bg-white py-1 shadow-lg"
+                  >
+                    <button className="w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-50">
+                      Logout
+                    </button>
+                  </div>
+                )}
+              </button>
+            </>
+          ) : (
+            <Link
+              href="/login"
+              className="rounded-md border border-gray-200 px-4 py-2 text-sm font-medium hover:bg-gray-50"
             >
-              Logout
-            </div>
-          </button>
+              Login
+            </Link>
+          )}
         </div>
       </div>
-    </>
-  );
-};
-
-export default Navbar;
+    </nav>
+  )
+}
