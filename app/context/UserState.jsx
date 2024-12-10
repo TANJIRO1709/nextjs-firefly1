@@ -12,26 +12,13 @@ import {
 function UserState({children}) {
   const router = useRouter();
   const host = process.env.NEXT_PUBLIC_HOST;
-  const [user, setUser] = useState([]);
+  const [user, setUser] = useState(null); // Initialize as null
   const [likedProducts, setLikedProducts] = useState([]);
   const [userModels, setUserModels] = useState([]);
   const [alert, setAlert] = useState(null);
-  const showAlert = (message, type) => {
-    setAlert({
-      msg: message,
-      type: type,
-    });
-    setTimeout(() => {
-      setAlert(null);
-    }, 4000);
-  };
-  const closeAlert = () => {
-    setAlert(null);
-  };
+
   const getUserData = async () => {
-    if (user) {
-      return user;
-    } else {
+    try {
       const response = await fetch(`${host}/user`, {
         method: "GET",
         credentials: "include",
@@ -39,18 +26,36 @@ function UserState({children}) {
           "Content-Type": "application/json",
         },
       });
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch user data");
+      }
+
       const data = await response.json();
+
       if (!data.success) {
-        showAlert("You are Not Logged In", "info");
+        showAlert("You are not logged in", "info");
         return;
       }
-      setUser(data.user);
-      setLikedProducts(data.user.likedProducts);
-      setUserModels(data.user.models);
-      showAlert("User Data fetched successfully", "success");
+
+      //console.log("Fetched user data:", data.user);
+
+      // Update state with fetched data
+      setUser({
+        userName: data.user.userName,
+        email: data.user.email,
+      });
+
+      setLikedProducts(data.user.likedProducts || []);
+      setUserModels(data.user.models || []);
+
+      showAlert("User data fetched successfully", "success");
+    } catch (error) {
+      console.error("Error fetching user data:", error);
+      showAlert("An error occurred while fetching user data", "error");
     }
   };
-
+  
   const login = async (values) => {
     const url = `${host}/login`;
     const response = await fetch(url, {
@@ -141,6 +146,19 @@ function UserState({children}) {
       setUser(null);
       showAlert("Logged out Successfully", "info");
     }
+  };
+
+  const showAlert = (message, type) => {
+    setAlert({
+      msg: message,
+      type: type,
+    });
+    setTimeout(() => {
+      setAlert(null);
+    }, 4000);
+  };
+  const closeAlert = () => {
+    setAlert(null);
   };
 
   const likeProduct = async (productId, like) => {

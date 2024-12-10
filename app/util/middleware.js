@@ -1,19 +1,37 @@
-import { useContext, useEffect } from "react";
-import { useRouter } from "next/navigation";
-import UserContext from "../context/userContext";
+"use client";
 
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 const redirectIfLoggedIn = (Component) => {
   return (props) => {
     const router = useRouter();
-    const { user } = useContext(UserContext);
+    const [loading, setLoading] = useState(true); 
 
     useEffect(() => {
-      if (user) {
-        router.push("/");
-      }
-    }, [user, router]);
+      const fetchUser = async () => {
+        try {
+          const response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/user`, {
+            credentials: "include",
+          });
+          const data = await response.json();
+          if (data.success) {
+            router.push('/');
+          }else{
+            setLoading(false); 
+          }
+        } catch (error) {
+          console.error("Failed to fetch user:", error);
+        }
+      };
+  
+      fetchUser();
+    }, []);
 
-    return !user ? <Component {...props} /> : null;
+    if (loading) {
+      return <div>Loading...</div>;
+    }
+
+    return <Component {...props} />;
   };
 };
 

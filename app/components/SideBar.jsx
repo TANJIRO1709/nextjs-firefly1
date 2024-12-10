@@ -20,9 +20,10 @@ import {
   dashboard_black,
 } from "../assets/icons";
 import UserContext from "../context/userContext";
+import Link from "next/link";
 
 const SideBar = ({ active, setActive, viewSideBar, toggleSidebar }) => {
-  const { logout } = useContext(UserContext);
+  const { logout,user } = useContext(UserContext);
   const [viewSidebarButton, setViewSidebarButton] = useState(false);
 
 
@@ -160,12 +161,22 @@ const SideBar = ({ active, setActive, viewSideBar, toggleSidebar }) => {
             >
               {order_black} <p className="mx-3">My Orders</p>
             </button>
-            <button
-              className={`flex px-4 py-1 rounded-lg items-center w-full`}
-              onClick={() => logout()}
-            >
-              {logout_black} <p className="mx-3">Logout</p>
-            </button>
+            {
+              user? (
+                <button
+                  className={`flex px-4 py-1 rounded-lg items-center w-full`}
+                  onClick={() => logout()}
+                >
+                  {logout_black} <p className="mx-3">Logout</p>
+                </button>
+              ):(
+                <button className="flex px-4 py-1 rounded-lg items-center w-full">
+                    {logout_black} <Link href={'/login'} className="mx-3">
+                      Login
+                    </Link>
+                </button>
+              )
+            }
           </div>
         </div>
       </div>

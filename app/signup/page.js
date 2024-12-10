@@ -89,7 +89,7 @@ const SignUp = () => {
           }}
           validationSchema={SignupValidationSchema}
           onSubmit={(values) => {
-            console.log("signup values => ", values);
+            //console.log("signup values => ", values);
             signup(values);
           }}
         >

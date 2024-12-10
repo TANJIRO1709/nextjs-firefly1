@@ -22,7 +22,7 @@ const Home = () => {
   const { user, logout, getUserData } = userContext;
 
   useEffect(() => {
-    // console.log("USER", user);
+    //console.log("USER", user);
     if (user) {
       setActive("dashboard");
     } else {
