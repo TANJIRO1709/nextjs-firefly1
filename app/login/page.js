@@ -8,6 +8,7 @@ import working_girl from "../assets/images/working_girl.png";
 import Link from "next/link";
 import { useContext } from "react";
 import UserContext from "../context/userContext";
+import redirectIfLoggedIn from "../util/middleware"
 
 const Login = () => {
   const userContext = useContext(UserContext);
@@ -134,4 +135,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default redirectIfLoggedIn(Login); // Wrap the component

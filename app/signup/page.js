@@ -8,7 +8,7 @@ import page_break from "../assets/images/page_break.png";
 import Link from "next/link";
 import { useContext } from "react";
 import UserContext from "../context/userContext";
-
+import redirectIfLoggedIn from "../util/middleware"
 const SignUp = () => {
   const [view, setView] = useState("password");
   const userContext = useContext(UserContext);
@@ -206,4 +206,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default redirectIfLoggedIn(SignUp);
