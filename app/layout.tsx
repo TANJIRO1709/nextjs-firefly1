@@ -5,7 +5,7 @@ import ShopState from "./context/ShopState";
 import EditorState from "./context/EditorState";
 
 const avenirnext = ({
-  src: "./assets/fonts/AvenirNextLTPro-Regular.otf",
+  src: "https://res.cloudinary.com/dmcnewoxd/image/upload/v1734690014/rxc5dynomgfbsfuebjt4.png",
   variable: "--fonts-avenir-next",
   weight: "100 900",
 });
