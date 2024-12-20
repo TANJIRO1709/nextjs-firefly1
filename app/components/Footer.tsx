@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="grid gap-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 justify-items-center sm:justify-items-start">
           <div className="space-y-4 text-center sm:text-left">
             <Image
-              src="https://res.cloudinary.com/dmcnewoxd/image/upload/v1734690014/rxc5dynomgfbsfuebjt4.png"
+              src="https://res.cloudinary.com/dmcnewoxd/image/upload/v1734713590/x2eoyxurf5irzca1undy.png"
               alt="Firefly Logo"
               width={150}
               height={80}
