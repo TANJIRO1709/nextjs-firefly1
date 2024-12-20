@@ -11,7 +11,7 @@ const avenirnext = ({
 });
 
 export const metadata: Metadata = {
-  title: "Firefly",
+  title: "Vizora",
 };
 
 export default function RootLayout({
